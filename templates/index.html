@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHRONIC KIDNEY DISEASE PREDICTION</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>NephroScan</h1>
+        <form id="predictionForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" pattern="\d{10}" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="18" max="65" required>
+                <span class="tooltip">Age should be between 18 and 65.</span>
+            </div>
+            <div class="form-group">
+                <label for="sex">Sex:</label>
+                <select id="sex" name="sex" required>
+                    <option value="" disabled selected>Select your sex</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="bloodPressure">Blood Pressure (mmHg):</label>
+                <input type="text" id="bloodPressure" name="bloodPressure" required>
+                <span class="tooltip">A normal reading is typically 120/80 mmHg.</span>
+            </div>
+            <div class="form-group">
+                <label for="bloodSugar">Blood Sugar Level (mg/dL):</label>
+                <input type="number" id="bloodSugar" name="bloodSugar" required>
+                <span class="tooltip">A normal fasting blood sugar level is 70-99 mg/dL.</span>
+            </div>
+            <div class="form-group">
+                <label for="creatinine">Creatinine Level (mg/dL):</label>
+                <input type="number" id="creatinine" name="creatinine" step="0.01" required>
+                <span class="tooltip">A normal creatinine level is 0.6-1.2 mg/dL.</span>
+            </div>
+            <div class="form-group">
+                <label for="urea">Urea Level (mg/dL):</label>
+                <input type="number" id="urea" name="urea" required>
+                <span class="tooltip">A normal urea level is 7-20 mg/dL.</span>
+            </div>
+            <div class="form-group">
+                <label for="hemoglobin">Hemoglobin Level (g/dL):</label>
+                <input type="number" id="hemoglobin" name="hemoglobin" step="0.1" required>
+                <span class="tooltip">Normal hemoglobin levels: Men: 13.8-17.2 g/dL, Women: 12.1-15.1 g/dL.</span>
+            </div>
+            <div class="form-group">
+                <label for="wbc">WBC Count (cells/mcL):</label>
+                <input type="number" id="wbc" name="wbc" required>
+                <span class="tooltip">A normal white blood cell count is 4,500-11,000 cells/mcL.</span>
+            </div>
+            <div class="form-group">
+                <label for="diabetes">Diabetes Status:</label>
+                <select id="diabetes" name="diabetes" required>
+                    <option value="" disabled selected>Select diabetes status</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hypertension">Hypertension Status:</label>
+                <select id="hypertension" name="hypertension" required>
+                    <option value="" disabled selected>Select hypertension status</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="appetite">Appetite Changes:</label>
+                <select id="appetite" name="appetite" required>
+                    <option value="" disabled selected>Select appetite status</option>
+                    <option value="normal">Normal</option>
+                    <option value="reduced">Reduced</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="swelling">Swelling in Legs or Feet:</label>
+                <select id="swelling" name="swelling" required>
+                    <option value="" disabled selected>Select swelling status</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="anemia">Anemia:</label>
+                <select id="anemia" name="anemia" required>
+                    <option value="" disabled selected>Select anemia status</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cholesterol">Cholesterol Level (mg/dL):</label>
+                <input type="number" id="cholesterol" name="cholesterol" required>
+                <span class="tooltip">Normal cholesterol level is less than 200 mg/dL.</span>
+            </div>
+            <button type="submit">Analyze</button>
+        </form>
+
+        <!-- Loading spinner -->
+        <div id="loadingSpinner" class="spinner" style="display: none;"></div>
+
+        <div id="result" class="result"></div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

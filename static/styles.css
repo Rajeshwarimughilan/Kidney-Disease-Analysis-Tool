@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c; /* Dark grey/black background */
+    color: #f1f1f1; /* White text */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #2f2f2f; /* Slightly lighter grey background for the form */
+    border-radius: 8px;
+    position: relative; /* Needed for spinner positioning */
+}
+
+h1 {
+    text-align: center;
+    color: #f1f1f1; /* White text for the title */
+}
+
+.form-group {
+    margin-bottom: 50px; /* Increased spacing between fields */
+    position: relative; /* Needed for tooltip positioning */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #e0e0e0; /* Light grey for labels */
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #007acc; /* Blue borders */
+    border-radius: 4px;
+    background-color: #333; /* Dark grey background for input fields */
+    color: #f1f1f1; /* White text inside input fields */
+}
+
+input:focus, select:focus {
+    border-color: #007acc; /* Blue border on focus */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #106e06; /* Dark grey button */
+    color: #f1f1f1; /* White text on button */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #666666; /* Slightly lighter grey on hover */
+}
+
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #3a3a3a; /* Darker grey for result area */
+    border-radius: 4px;
+    color: #f1f1f1; /* White text for results */
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid #5ec967; /* Spinner color */
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.tooltip {
+    visibility: hidden;
+    background-color: #4d4d4d;
+    color: #f1f1f1;
+    text-align: left;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 2; /* Higher z-index to ensure tooltip is on top */
+    top: 100%; /* Position tooltip below the input field */
+    left: 0; /* Align tooltip with the input field */
+    transform: translateY(15px); /* Increase space between tooltip and input */
+    width: 100%; /* Match tooltip width to input field width */
+    font-size: 0.8em; /* Smaller font size for tooltip */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.form-group:hover .tooltip {
+    visibility: visible;
+}
+
+.form-group:hover input {
+    border-color: #5ec967;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+}
