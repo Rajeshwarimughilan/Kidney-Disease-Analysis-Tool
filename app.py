@@ -9,7 +9,7 @@ def kidney_disease_prediction(age, blood_pressure, blood_sugar, creatinine, urea
 
     # Blood Pressure (Normal: 120/80 mmHg)
     if blood_pressure > 140:
-        risk_factors += 1
+        risk_factors += 2
 
     # Blood Sugar (Normal fasting: 70-99 mg/dL)
     if blood_sugar > 125:
